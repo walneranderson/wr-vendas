@@ -1,0 +1,83 @@
+@charset "UTF-8";
+html,
+body {
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.card-header h3 {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background: rgb(90, 9, 121);
+    background: linear-gradient(90deg, rgba(90, 9, 121, 1) 0%, rgba(232, 9, 205, 1) 100%);
+    color: white;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: white;
+    font-weight: bold;
+    background: rgb(90, 9, 121);
+    background: linear-gradient(90deg, rgba(90, 9, 121, 1) 0%, rgba(232, 9, 205, 1) 100%);
+    width: 100px;
+    border: 1px solid rgb(90, 9, 121);
+}
+
+.login_btn:hover {
+    color: white;
+    opacity: 0.8;
+}
+
+.links{
+    color: white;
+}
+
+.links a {
+    color: white;
+    margin-left: 4px;
+}
+
+.logo-wr-vendas{
+    width: 100px;
+    margin: 25px auto 15px auto;
+}
+.logo-wr-vendas img{
+    width: 100%;
+}
