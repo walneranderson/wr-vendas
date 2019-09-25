@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
+  <meta name="description" content="Sistema de vendas, painel de controle listagem de produtos- WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Cadatro de Usuário</title>
+  <title>WR Vendas | Painel Produtos</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -23,7 +23,7 @@
           </a>
         </div>
         <ul class="nav">
-          <li>
+          <li class="active ">
             <a href="<?php echo base_url('usuarios'); ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>Usuários</p>
@@ -36,7 +36,7 @@
             </a>
           </li>
           <li>
-            <a href="<?php echo base_url('produtos'); ?>">
+            <a href="./icons.html">
               <i class="tim-icons icon-cart"></i>
               <p>Produtos</p>
             </a>
@@ -116,43 +116,54 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                    <h2 class="card-title">Cadastro de usuários</h2>
+                  <div class="mensagem-erro">
+                      <?php
+                          if($msgError = get_msg_error()) {
+                              echo $msgError;
+                          }
+                      ?>
+                    </div>
+                    <div class="mensagem-sucesso">
+                      <?php
+                          if($msgSucess = get_msg_sucess()) {
+                              echo $msgSucess;
+                          }
+                      ?>
+                    </div>
+                    <h2 class="card-title">Produtos</h2>
+                    <a href="<?php echo base_url('cadastro_usuario'); ?>" class="btn btn-primary btn-adicionar">
+                      + Adicionar
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-              <form action="<?php echo base_url('cadastroUsuario/registerUser') ?>" method="POST">
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" class="form-control cnpj" id="nome" name="nome" placeholder="Nome" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="confSenha" name="confSenha" placeholder="Repita sua senha" required>
-                    </div>
-                </div> 
-                <hr class="divisao"/>
-                <div class="mensagem-erro">
-                  <?php
-                      if($msgError = get_msg_error()) {
-                          echo $msgError;
-                      }
-                  ?>
+                <div class="table-responsive">
+                  <table class="table table-hover data-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Preço avista</th>
+                            <th scope="col">Preço a prazo</th>
+                            <th scope="col">Detalhes</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($products as $key => $product) { ?>
+                        <tr>
+                            <td><?= $product['descricao']; ?></td>
+                            <td><?= $product['preco_vista']; ?></td>
+                            <td><?= $product['preco_prazo']; ?></td>
+                            <td><?= $product['detalhamento']; ?></td>
+                            <td><a href="edicao_usuario/<?= $product['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
+                            <td><a href="removerUsuario/userDelete/<?= $product['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="mensagem-sucesso">
-                  <?php
-                      if($msgSucess = get_msg_sucess()) {
-                          echo $msgSucess;
-                      }
-                  ?>
-                </div>
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
-            </form>
               </div>
             </div>
           </div>

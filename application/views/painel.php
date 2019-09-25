@@ -6,7 +6,7 @@
   <meta name="description" content="Sistema de vendas, painel de controle - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Painel</title>
+  <title>WR Vendas | Painel Usuário</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -36,7 +36,7 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="<?php echo base_url('produtos'); ?>">
               <i class="tim-icons icon-cart"></i>
               <p>Produtos</p>
             </a>

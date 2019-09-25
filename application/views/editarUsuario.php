@@ -36,7 +36,7 @@
             </a>
           </li>
           <li>
-            <a href="./icons.html">
+            <a href="<?php echo base_url('produtos'); ?>">
               <i class="tim-icons icon-cart"></i>
               <p>Produtos</p>
             </a>

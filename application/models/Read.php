@@ -8,8 +8,8 @@ class Read extends CI_Model {
 		parent::__construct();
 	}
 
-    public function finAll()
+    public function finAll($table)
     {
-       return $this->db->get("usuarios")->result_array();
+       return $this->db->get($table)->result_array();
 	}	
 }

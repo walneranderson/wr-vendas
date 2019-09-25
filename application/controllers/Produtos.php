@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class Usuario extends CI_Controller {
+	class Produtos extends CI_Controller {
 
 		function __construct()
 		{
@@ -11,11 +11,11 @@
 			$this->load->model('read');
 		}
         
-		public function findAllUser()
+		public function findAllProduct()
 		{
 			loginVerify();
 
-			$dados = array("users" => $this->read->finAll("usuarios"));
-			$this->load->view('painel', $dados);
+			$dados = array("products" => $this->read->finAll("produtos"));
+			$this->load->view('produtos', $dados);
 		}
 	}
