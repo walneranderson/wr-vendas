@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
+  <meta name="description" content="Sistema de vendas, painel de controle listagem de produtos- WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Cadatro de Usuário</title>
+  <title>WR Vendas | Painel Clientes</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -29,7 +29,7 @@
               <p>Usuários</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="<?php echo base_url('clientes'); ?>">
               <i class="tim-icons icon-badge"></i>
               <p>Clientes</p>
@@ -116,42 +116,61 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                    <h2 class="card-title">Dados do Usuário</h2>
+                  <div class="mensagem-erro">
+                      <?php
+                          if($msgError = get_msg_error()) {
+                              echo $msgError;
+                          }
+                      ?>
+                    </div>
+                    <div class="mensagem-sucesso">
+                      <?php
+                          if($msgSucess = get_msg_sucess()) {
+                              echo $msgSucess;
+                          }
+                      ?>
+                    </div>
+                    <h2 class="card-title">Produtos</h2>
+                    <a href="<?php echo base_url('cadastro_produto'); ?>" class="btn btn-primary btn-adicionar">
+                      + Adicionar
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-              <form action="<?php echo base_url('editar_usuario') ?>" method="POST">
-                <div class="row">
-                    <input type="hidden" class="form-control" value="<?= $id ?>" required>
-                    <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" name="matricula" value="<?= $matricula ?>"placeholder="Matrícula" required>
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" name="senha" placeholder="Senha">
-                    </div>
-                    <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" name="confSenha" placeholder="Repita sua senha">
-                    </div>
-                </div> 
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
-              </form>
-              <div class="mensagem-erro-edit">
-                  <?php
-                      if($msgError = get_msg_error()) {
-                          echo $msgError;
-                      }
-                  ?>
-                </div>
-                <div class="mensagem-sucesso-edit">
-                  <?php
-                      if($msgSucess = get_msg_sucess()) {
-                          echo $msgSucess;
-                      }
-                  ?>
+                <div class="table-responsive">
+                  <table class="table table-hover data-table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">RG</th>
+                            <th scope="col">ENDEREÇO</th>
+                            <th scope="col">NÚMERO</th>
+                            <th scope="col">ESTADO</th>
+                            <th scope="col">CIDADE</th>
+                            <th scope="col">RENDA</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($clients as $key => $client) { ?>
+                        <tr>
+                            <td><?= $client['nome']; ?></td>
+                            <td><?= $client['cpf']; ?></td>
+                            <td><?= $client['rg']; ?></td>
+                            <td><?= $client['endereco']; ?></td>
+                            <td><?= $client['numero']; ?></td>
+                            <td><?= $client['estado']; ?></td>
+                            <td><?= $client['cidade']; ?></td>
+                            <td><?= $client['renda']; ?></td>
+                            <td><a href="edicao_cliente/<?= $client['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
+                            <td><a href="removerCliente/clientDelete/<?= $client['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
