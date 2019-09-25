@@ -36,7 +36,7 @@
             </a>
           </li>
           <li class="active ">
-            <a href="./icons.html">
+            <a href="<?php echo base_url('produtos'); ?>">
               <i class="tim-icons icon-cart"></i>
               <p>Produtos</p>
             </a>
@@ -158,7 +158,7 @@
                             <td><?= $product['preco_prazo']; ?></td>
                             <td><?= $product['detalhamento']; ?></td>
                             <td><a href="edicao_produto/<?= $product['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="removerUsuario/userDelete/<?= $product['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
+                            <td><a href="removerProduto/productDelete/<?= $product['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
