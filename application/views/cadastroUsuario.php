@@ -24,7 +24,7 @@
         </div>
         <ul class="nav">
           <li>
-            <a href="<?php echo base_url('usuario'); ?>">
+            <a href="<?php echo base_url('usuarios'); ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>Usuários</p>
             </a>
