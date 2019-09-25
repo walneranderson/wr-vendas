@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 // Rotas personalizadas - WR-VENDAS
 $route['usuarios']              = 'usuario/findAllUser';
 $route['painel']                = 'usuario/findAllUser';
+$route['produtos']              = 'Produtos/findAllProduct';
 $route['cadastro_usuario']      = 'CadastroUsuario';
 $route['editar_usuario']        = 'EditarUsuario/userUpdate';
 $route['edicao_usuario/(:num)'] = 'DadosUsuario/showData/$id';
