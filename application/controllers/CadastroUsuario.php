@@ -15,6 +15,8 @@
 
 		public function index()
 		{
+			loginVerify();
+			
 			$this->load->view('cadastroUsuario');
 		}
 
@@ -25,7 +27,7 @@
 			$date = new DateTime();
 			$dataForm = $this->input->post();
 			$dataForm['created'] = $date->format('Y-m-d H:i:s');
-			$dataForm['senha']   = password_hash($dataForm['senha'], PASSWORD_DEFAULT);
+			$dataForm['senha'] = password_hash($dataForm['senha'], PASSWORD_DEFAULT);
 			unset($dataForm['confSenha']);
 
 			$this->form_validation->set_rules('nome', 'NOME', 'trim|required');
@@ -37,13 +39,13 @@
                 if(validation_errors()){
 					set_msg_error(validation_errors());
 					$this->load->view('cadastroUsuario');
-				};
+				}
 			}else {
-				$isValid = $this->verifyUser->findUser($dataForm['matricula']);
+				$isValid = $this->verifyUser->findUser('matricula', $dataForm['matricula']);
 				if($isValid != NULL) {
 					set_msg_error("Usuário já cadastrado!");
 					$this->load->view('cadastroUsuario');
-				}else {				
+				}else {					
 					$userData = elements(array('nome','matricula', 'senha', 'created'), $dataForm); 
 					$status = $this->create->do_insert('usuarios', $userData);
 						

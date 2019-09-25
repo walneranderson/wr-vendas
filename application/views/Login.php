@@ -28,24 +28,31 @@
 			</div>
 			
 			<div class="card-body">
-				<form action="<?php echo base_url('loginAutenticar'); ?>" method="post">
+				<form action="<?php echo base_url('loginAutenticar/authenticate'); ?>" method="post">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" name="matricula" placeholder="Matrícula">
+						<input type="text" class="form-control" name="matricula" placeholder="Matrícula" required>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" name="senha" placeholder="Senha">
+						<input type="password" class="form-control" name="senha" placeholder="Senha" required>
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
+				<div class="mensagem-erro">
+				  <?php
+                      if($msgError = get_msg_error()) {
+                          echo $msgError;
+                      }
+                  ?>
+                </div>
 			</div>
 		</div>
 	</div>

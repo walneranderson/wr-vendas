@@ -6,10 +6,41 @@
 		function __construct()
 		{
 			parent::__construct();
+
+			$this->load->model("verifyUser");
+			$this->load->library('form_validation');
 		}
 
-		public function index()
+		public function authenticate()
 		{
-			redirect('usuario', 'refresh');
+			$loginData  = $this->input->post();
+			$UserDataDb = $this->verifyUser->findUser('matricula', $loginData['matricula']);
+
+			$this->form_validation->set_rules('matricula', 'Matrícula', 'trim|required');
+			$this->form_validation->set_rules('senha', 'SENHA', 'trim|required');
+
+			if($this->form_validation->run() == FALSE) {
+                if(validation_errors()){
+					set_msg_error(validation_errors());
+					$this->load->view('login');
+				}
+			}else if($UserDataDb) {
+				if (password_verify($loginData['senha'], $UserDataDb->senha)) {
+					
+					$this->session->set_userdata('logged', TRUE);
+					$this->session->set_userdata('id', $UserDataDb->id);
+					$this->session->set_userdata('nome', $UserDataDb->nome);
+					$this->session->set_userdata('matricula', $UserDataDb->matricula);
+
+					redirect('painel', 'refresh');
+
+				}else {
+					set_msg_error("Senha incorreta!");
+					redirect('login', 'refresh');
+				}
+			}else {
+				set_msg_error("Usuário não existe!");
+				redirect('login', 'refresh');
+			}
 		}
 	}

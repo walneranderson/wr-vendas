@@ -7,12 +7,12 @@ class VerifyUser extends CI_Model {
 		parent::__construct();
 	}
 
-    function findUser($matricula)
+    function findUser($campo, $matricula)
     {
-		$this->db->where('matricula', $matricula);
+		$this->db->where($campo, $matricula);
 		$query = $this->db->get('usuarios', 1);
         if($query->num_rows() == 1) {
-			return $query->row()->matricula;
+			return $query->row();
 		}else {
 			return NULL;
         }

@@ -12,6 +12,8 @@
         
 		public function findAllUser()
 		{
+			loginVerify();
+
 			$dados = array("users" => $this->read->finAll());
 			$this->load->view('painel', $dados);
 		}

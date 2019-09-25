@@ -81,3 +81,13 @@ input:focus {
 .logo-wr-vendas img{
     width: 100%;
 }
+.mensagem-erro{
+    width: 90%;
+    margin: 70px auto 0 auto;
+    text-align: center;
+    font-size: 11pt;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(112, 13, 13); 
+}

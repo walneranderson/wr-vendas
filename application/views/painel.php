@@ -24,7 +24,7 @@
         </div>
         <ul class="nav">
           <li class="active ">
-            <a href="<?php echo base_url('loginAutentic/autenticarUsuario'); ?>">
+            <a href="<?php echo base_url('usuarios'); ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>Usuários</p>
             </a>
@@ -117,7 +117,7 @@
                 <div class="row">
                   <div class="col-sm-12 text-left">
                     <h2 class="card-title">Usuários</h2>
-                    <a href="<?php echo base_url('CadastroUsuario'); ?>" class="btn btn-primary btn-adicionar">
+                    <a href="<?php echo base_url('cadastro_usuario'); ?>" class="btn btn-primary btn-adicionar">
                       + Adicionar
                     </a>
                   </div>
