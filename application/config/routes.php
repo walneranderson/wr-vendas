@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['usuarios']              = 'usuario/findAllUser';
 $route['painel']                = 'usuario/findAllUser';
 $route['produtos']              = 'Produtos/findAllProduct';
+$route['clientes']              = 'Clientes/findAllClient';
 $route['cadastro_usuario']      = 'CadastroUsuario';
 $route['cadastro_produto']      = 'CadastroProduto';
 $route['editar_usuario']        = 'EditarUsuario/userUpdate';

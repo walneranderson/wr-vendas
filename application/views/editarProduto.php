@@ -30,7 +30,7 @@
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="<?php echo base_url('clientes'); ?>">
               <i class="tim-icons icon-badge"></i>
               <p>Clientes</p>
             </a>
