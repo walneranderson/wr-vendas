@@ -124,7 +124,7 @@
               <form action="<?php echo base_url('cadastroUsuario/registerUser') ?>" method="POST">
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control cnpj" id="nome" name="nome" placeholder="Nome" required>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
                     </div>
                     <div class="form-group col-sm-6">
                         <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula" required>

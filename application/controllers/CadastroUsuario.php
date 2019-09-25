@@ -53,7 +53,7 @@
 						set_msg_sucess("Usuário inserido com sucesso!");
 						redirect('cadastroUsuario', 'refresh');
 					}else {
-						set_msg_error("Erro ao inserir dados!");
+						set_msg_error("Erro ao inserir usuário!");
 						redirect('cadastroUsuario', 'refresh');
 					}
 				}
