@@ -137,22 +137,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($users as $key => $user) { ?>
                         <tr>
-                            <td>Mariana Guimarães</td>
-                            <td>mariana@gmail.com</td>
-                            <td>23/09/2019 as 19:30</td>
-                            <td>Ativo</td>
-                            <td><a href="#"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="#"><i class="tim-icons icon-trash-simple"></i></a></td>
+                            <td><?= $user['nome']; ?></td>
+                            <td><?= $user['matricula']; ?></td>
+                            <td><?= date("d/m/Y", strtotime($user['created'])) ; ?></td>
+                            <td><?php echo $user['status'] == 1 ? "Ativo" : "Desativado"; ?></td>
+                            <td><a href="#?<?= $user['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
+                            <td><a href="#?<?= $user['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
                         </tr>
-                        <tr>
-                            <td>Walner Anderson</td>
-                            <td>walner@gmail.com</td>
-                            <td>23/09/2019 as 16:30</td>
-                            <td>Inativo</td>
-                            <td><a href="#"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="#"><i class="tim-icons icon-trash-simple"></i></a></td>
-                        </tr>
+                        <?php } ?>
                     </tbody>
                   </table>
                 </div>
