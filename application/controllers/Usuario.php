@@ -6,10 +6,13 @@
 		function __construct()
 		{
 			parent::__construct();
-        }
+
+			$this->load->model('read');
+		}
         
-		public function index()
+		public function findAllUser()
 		{
-			$this->load->view('painel');
+			$dados = array("users" => $this->read->finAll());
+			$this->load->view('painel', $dados);
 		}
 	}
