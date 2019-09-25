@@ -12,6 +12,8 @@
     
 		public function showData()
 		{	
+			loginVerify();
+			
             $usuario = $this->verifyUser->findUser('id', $this->uri->segment(2));
             $this->load->view('editarUsuario', $usuario);
 		}

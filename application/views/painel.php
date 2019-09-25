@@ -116,6 +116,20 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
+                  <div class="mensagem-erro">
+                      <?php
+                          if($msgError = get_msg_error()) {
+                              echo $msgError;
+                          }
+                      ?>
+                    </div>
+                    <div class="mensagem-sucesso">
+                      <?php
+                          if($msgSucess = get_msg_sucess()) {
+                              echo $msgSucess;
+                          }
+                      ?>
+                    </div>
                     <h2 class="card-title">Usuários</h2>
                     <a href="<?php echo base_url('cadastro_usuario'); ?>" class="btn btn-primary btn-adicionar">
                       + Adicionar
@@ -144,7 +158,7 @@
                             <td><?= date("d/m/Y", strtotime($user['created'])) ; ?></td>
                             <td><?php echo $user['status'] == 1 ? "Ativo" : "Desativado"; ?></td>
                             <td><a href="edicao_usuario/<?= $user['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="#<?= $user['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
+                            <td><a href="removerUsuario/userDelete/<?= $user['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
                         </tr>
                         <?php } ?>
                     </tbody>
