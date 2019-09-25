@@ -57,6 +57,7 @@ $route['usuarios']              = 'usuario/findAllUser';
 $route['painel']                = 'usuario/findAllUser';
 $route['produtos']              = 'Produtos/findAllProduct';
 $route['cadastro_usuario']      = 'CadastroUsuario';
+$route['cadastro_produto']      = 'CadastroProduto';
 $route['editar_usuario']        = 'EditarUsuario/userUpdate';
 $route['edicao_usuario/(:num)'] = 'DadosUsuario/showData/$id';
 
