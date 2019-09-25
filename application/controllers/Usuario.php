@@ -7,6 +7,7 @@
 		{
 			parent::__construct();
 
+			$this->load->model('verifyUser');
 			$this->load->model('read');
 		}
         

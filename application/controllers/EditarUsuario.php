@@ -7,12 +7,15 @@
 		{
 			parent::__construct();
 
+            $this->load->model('verifyUser');
 			$this->load->model('update');
 			$this->load->library('form_validation');
         }
 
 		public function userUpdate()
 		{	
+            loginVerify();
+            
             $dataForm = $this->input->post();
 
 			$this->form_validation->set_rules('nome', 'NOME', 'trim|required');

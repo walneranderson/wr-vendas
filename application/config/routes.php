@@ -53,9 +53,9 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 // Rotas personalizadas - WR-VENDAS
-$route['usuarios']         = 'usuario/findAllUser';
-$route['painel']           = 'usuario/findAllUser';
-$route['cadastro_usuario'] = 'CadastroUsuario';
-$route['editar_usuario']    = 'EditarUsuario/userUpdate';
+$route['usuarios']              = 'usuario/findAllUser';
+$route['painel']                = 'usuario/findAllUser';
+$route['cadastro_usuario']      = 'CadastroUsuario';
+$route['editar_usuario']        = 'EditarUsuario/userUpdate';
 $route['edicao_usuario/(:num)'] = 'DadosUsuario/showData/$id';
 
