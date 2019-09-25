@@ -20448,7 +20448,7 @@ Copyright (c) 2015 Daniel Eden
 .btn-salvar{
   float: right;
 }
-.mensagem-erro{
+.mensagem-erro, .mensagem-erro-edit{
   width: 50%;
   margin: 0 auto;
   text-align: center;
@@ -20457,7 +20457,11 @@ Copyright (c) 2015 Daniel Eden
   border-radius: 10px;
   background-color: rgb(112, 13, 13); 
 }
-.mensagem-sucesso{
+.mensagem-erro-edit{
+  margin-top: 40px;
+}
+
+.mensagem-sucesso, .mensagem-sucesso-edit{
   width: 50%;
   margin: 0 auto;
   text-align: center;
@@ -20465,4 +20469,7 @@ Copyright (c) 2015 Daniel Eden
   color: white;
   border-radius: 10px;
   background-color: green; 
+}
+.mensagem-sucesso-edit{
+  margin-top: 40px;
 }
