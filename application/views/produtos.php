@@ -157,7 +157,7 @@
                             <td><?= $product['preco_vista']; ?></td>
                             <td><?= $product['preco_prazo']; ?></td>
                             <td><?= $product['detalhamento']; ?></td>
-                            <td><a href="edicao_usuario/<?= $product['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
+                            <td><a href="edicao_produto/<?= $product['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
                             <td><a href="removerUsuario/userDelete/<?= $product['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
                         </tr>
                         <?php } ?>

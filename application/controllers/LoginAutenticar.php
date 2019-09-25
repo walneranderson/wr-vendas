@@ -7,14 +7,14 @@
 		{
 			parent::__construct();
 
-			$this->load->model("verifyUser");
+			$this->load->model("verify");
 			$this->load->library('form_validation');
 		}
 
 		public function authenticate()
 		{
 			$loginData  = $this->input->post();
-			$UserDataDb = $this->verifyUser->findUser('matricula', $loginData['matricula']);
+			$UserDataDb = $this->verify->find('usuarios', 'matricula', $loginData['matricula']);
 
 			$this->form_validation->set_rules('matricula', 'Matrícula', 'trim|required');
 			$this->form_validation->set_rules('senha', 'SENHA', 'trim|required');

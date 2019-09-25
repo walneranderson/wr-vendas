@@ -123,18 +123,18 @@
               <div class="card-body">
               <form action="<?php echo base_url('editar_usuario') ?>" method="POST">
                 <div class="row">
-                    <input type="hidden" class="form-control" name="id" value="<?= $id ?>" required>
+                    <input type="hidden" class="form-control" value="<?= $id ?>" required>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="nome" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
+                        <input type="text" class="form-control" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="matricula" name="matricula" value="<?= $matricula ?>"placeholder="Matrícula" required>
+                        <input type="text" class="form-control" name="matricula" value="<?= $matricula ?>"placeholder="Matrícula" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                        <input type="password" class="form-control" name="senha" placeholder="Senha">
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="confSenha" name="confSenha" placeholder="Repita sua senha">
+                        <input type="password" class="form-control" name="confSenha" placeholder="Repita sua senha">
                     </div>
                 </div> 
                 <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
