@@ -11,10 +11,6 @@ class Delete extends CI_Model {
     public function do_delete($table, $id)
     {
         $this->db->where('id', $id);
-        // return $this->db->delete($table);
-        // return $this->db->delete($table);
-        // return $this->db->delete($table);
-        // return $this->db->delete($table);
         return $this->db->delete($table);
 	}	
 }
