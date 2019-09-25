@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, painel de controle - WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Painel</title>
+  <title>WR Vendas | Cadatro de Usuário</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -23,7 +23,7 @@
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="<?php echo base_url('usuarios'); ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>Usuários</p>
@@ -116,39 +116,42 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                    <h2 class="card-title">Usuários</h2>
-                    <a href="<?php echo base_url('cadastro_usuario'); ?>" class="btn btn-primary btn-adicionar">
-                      + Adicionar
-                    </a>
+                    <h2 class="card-title">Dados do Usuário</h2>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-hover data-table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Matrícula</th>
-                            <th scope="col">Data Inicial</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Remover</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($users as $key => $user) { ?>
-                        <tr>
-                            <td><?= $user['nome']; ?></td>
-                            <td><?= $user['matricula']; ?></td>
-                            <td><?= date("d/m/Y", strtotime($user['created'])) ; ?></td>
-                            <td><?php echo $user['status'] == 1 ? "Ativo" : "Desativado"; ?></td>
-                            <td><a href="edicao_usuario/<?= $user['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="#<?= $user['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                  </table>
+              <form action="<?php echo base_url('editar_usuario') ?>" method="POST">
+                <div class="row">
+                    <input type="hidden" class="form-control" name="id" value="<?= $id ?>" required>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" id="nome" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" id="matricula" name="matricula" value="<?= $matricula ?>"placeholder="Matrícula" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="password" class="form-control" id="confSenha" name="confSenha" placeholder="Repita sua senha">
+                    </div>
+                </div> 
+                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+              </form>
+              <div class="mensagem-erro-edit">
+                  <?php
+                      if($msgError = get_msg_error()) {
+                          echo $msgError;
+                      }
+                  ?>
+                </div>
+                <div class="mensagem-sucesso-edit">
+                  <?php
+                      if($msgSucess = get_msg_sucess()) {
+                          echo $msgSucess;
+                      }
+                  ?>
                 </div>
               </div>
             </div>
@@ -189,5 +192,4 @@
     });
   </script>
 </body>
-
 </html>
