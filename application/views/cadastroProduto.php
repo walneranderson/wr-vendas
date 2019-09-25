@@ -124,19 +124,19 @@
               <form action="<?php echo base_url('cadastroProduto/registerProduct') ?>" method="POST">
                 <div class="row">
                     <div class="form-group col-sm-12">
-                        <input type="text" class="form-control" id="codigo_barras" name="codigo_barras" placeholder="Código de barras" required>
+                        <input type="text" class="form-control" name="codigo_barras" placeholder="Código de barras" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Nome do produto" required>
+                        <input type="text" class="form-control" name="descricao" placeholder="Nome do produto" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="preco_vista" name="preco_vista" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Preço avista" required>
+                        <input type="text" class="form-control" name="preco_vista" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Preço avista" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="preco_prazo" name="preco_prazo" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Preço a prazo" required>
+                        <input type="text" class="form-control" name="preco_prazo" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Preço a prazo" required>
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="text" class="form-control" id="detalhamento" name="detalhamento" placeholder="Detalhes do produto" required>
+                        <input type="text" class="form-control" name="detalhamento" placeholder="Detalhes do produto" required>
                     </div>
                 </div> 
                 <hr class="divisao"/>

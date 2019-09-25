@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class DadosUsuario extends CI_Controller {
+	class DadosProduto extends CI_Controller {
 
 		function __construct()
 		{
@@ -14,7 +14,7 @@
 		{	
 			loginVerify();
 			
-            $usuario = $this->verify->find('usuarios', 'id', $this->uri->segment(2));
-            $this->load->view('editarUsuario', $usuario);
+			$produto = $this->verify->find('produtos','id', $this->uri->segment(2));
+            $this->load->view('editarProduto', $produto);
 		}
 	}

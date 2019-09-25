@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Update extends CI_Model {
+class UpdateUser extends CI_Model {
 
     function __construct()
     {
         parent::__construct();
         
-        $this->load->model('verifyUser');
+        $this->load->model('verify');
 	}
 
-    public function do_update($campo, $data)
+    public function do_update($table, $campo, $data)
     {
-        $isUser = $this->verifyUser->findUser($campo, $data['id']);
+        $isUser = $this->verify->find($table, $campo, $data['id']);
 
         if($isUser != NULL) {
             $this->db->set('nome', $data['nome']);

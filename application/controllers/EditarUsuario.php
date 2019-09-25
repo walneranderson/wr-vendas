@@ -5,10 +5,9 @@
 
 		function __construct()
 		{
-			parent::__construct();
-
-            $this->load->model('verifyUser');
-			$this->load->model('update');
+            parent::__construct();
+            
+			$this->load->model('updateUser');
 			$this->load->library('form_validation');
         }
 
@@ -32,7 +31,7 @@
                     redirect('edicao_usuario/'.$dataForm['id'], 'refrash');
 				}
 			}else {
-                $usuario = $this->update->do_update('id', $dataForm);
+                $usuario = $this->updateUser->do_update('usuarios', 'id', $dataForm);
                 if ($usuario != NULL) {
                     set_msg_sucess("Usuário atualizado com sucesso!");
                     redirect('edicao_usuario/'.$dataForm['id'], 'refrash');

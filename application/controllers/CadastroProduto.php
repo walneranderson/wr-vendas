@@ -7,7 +7,6 @@
 		{
 			parent::__construct();
 
-			$this->load->model('verifyUser');
 			$this->load->model('create');
 			$this->load->helper('array');
 			$this->load->library('form_validation');

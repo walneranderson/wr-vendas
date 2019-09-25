@@ -7,7 +7,7 @@
 		{
 			parent::__construct();
 
-			$this->load->model('verifyUser');
+			$this->load->model('verify');
 			$this->load->model('create');
 			$this->load->helper('array');
 			$this->load->library('form_validation');
@@ -41,7 +41,7 @@
 					$this->load->view('cadastroUsuario');
 				}
 			}else {
-				$isValid = $this->verifyUser->findUser('matricula', $dataForm['matricula']);
+				$isValid = $this->verifyUser->find('usuarios', 'matricula', $dataForm['matricula']);
 				if($isValid != NULL) {
 					set_msg_error("Usuário já cadastrado!");
 					$this->load->view('cadastroUsuario');

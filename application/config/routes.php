@@ -59,5 +59,7 @@ $route['produtos']              = 'Produtos/findAllProduct';
 $route['cadastro_usuario']      = 'CadastroUsuario';
 $route['cadastro_produto']      = 'CadastroProduto';
 $route['editar_usuario']        = 'EditarUsuario/userUpdate';
+$route['editar_produto']        = 'EditarProduto/productUpdate';
 $route['edicao_usuario/(:num)'] = 'DadosUsuario/showData/$id';
+$route['edicao_produto/(:num)'] = 'DadosProduto/showData/$id';
 
