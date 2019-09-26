@@ -163,7 +163,7 @@
                       }
                   ?>
                 </div>
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
               </div>
             </div>

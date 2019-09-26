@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de atualização de produto - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Cadatro de Usuário</title>
+  <title>WR Vendas | Painel de Atualização do Produto</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -116,7 +116,7 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                    <h2 class="card-title">Dados do Usuário</h2>
+                    <h2 class="card-title">Dados do Produto</h2>
                   </div>
                 </div>
               </div>
@@ -140,7 +140,7 @@
                         <input type="text" class="form-control" name="detalhamento" value="<?= $detalhamento ?>" placeholder="Detalhes do produto" required>
                     </div>
                 </div> 
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
               </form>
               <div class="mensagem-erro-edit">
                   <?php
