@@ -15779,6 +15779,7 @@ img {
 .navbar .navbar-wrapper {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .navbar .navbar-text {
@@ -16035,6 +16036,7 @@ img {
 
   .navbar .navbar-toggler-bar+.navbar-toggler-bar {
     margin-top: 7px;
+    background: #ffffff;
   }
 
   .navbar .navbar-toggler-bar+.navbar-toggler-bar.navbar-kebab {
@@ -17798,6 +17800,11 @@ table.tablesorter thead tr .headerSortDown {
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 
+.painel-vendas{
+  border-top: none;
+  background: linear-gradient(#8181e7, #1e1e24);
+}
+
 .main-panel[data="blue"] {
   border-top: 2px solid #1d8cf8;
 }
@@ -17810,11 +17817,13 @@ table.tablesorter thead tr .headerSortDown {
   border-top: 2px solid #e14eca;
 }
 
-.main-panel>.content {
+.main-panel>.content{
   padding: 78px 30px 30px 280px;
   min-height: calc(100vh - 70px);
 }
-
+.main-panel>.content-vendas{
+  padding: 78px 100px 30px 100px;
+}
 .main-panel>.navbar {
   margin-bottom: 0;
 }
@@ -20472,4 +20481,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .mensagem-sucesso-edit{
   margin-top: 40px;
+}
+
+.opcoes-vendas option{
+  font-weight: bold;
+  background: #1e1e2f;
 }

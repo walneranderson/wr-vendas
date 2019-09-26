@@ -42,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="<?php echo base_url('vendas'); ?>" target="_blank">
               <i class="tim-icons icon-bag-16"></i>
               <p>Vendas</p>
             </a>
