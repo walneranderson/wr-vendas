@@ -29,7 +29,7 @@
                     redirect('edicao_produto/'.$dataForm['id'], 'refrash');
 				}
 			}else {
-                $produto = $this->updateProduct->do_update('produtos', 'id', $dataForm);
+                $produto = $this->updateProduct->do_update($dataForm);
                 if ($produto != NULL) {
                     set_msg_sucess("Produto atualizado com sucesso!");
                     redirect('edicao_produto/'.$dataForm['id'], 'refrash');

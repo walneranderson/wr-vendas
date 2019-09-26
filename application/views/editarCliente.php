@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, painel de controle listagem de produtos- WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de edição de cliente - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Painel Clientes</title>
+  <title>WR Vendas | Painel Edição de Cliente</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -29,7 +29,7 @@
               <p>Usuários</p>
             </a>
           </li>
-          <li class="active ">
+          <li>
             <a href="<?php echo base_url('clientes'); ?>">
               <i class="tim-icons icon-badge"></i>
               <p>Clientes</p>
@@ -116,61 +116,54 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                  <div class="mensagem-erro">
-                      <?php
-                          if($msgError = get_msg_error()) {
-                              echo $msgError;
-                          }
-                      ?>
-                    </div>
-                    <div class="mensagem-sucesso">
-                      <?php
-                          if($msgSucess = get_msg_sucess()) {
-                              echo $msgSucess;
-                          }
-                      ?>
-                    </div>
-                    <h2 class="card-title">Produtos</h2>
-                    <a href="<?php echo base_url('cadastro_cliente'); ?>" class="btn btn-primary btn-adicionar">
-                      + Adicionar
-                    </a>
+                    <h2 class="card-title">Dados do Cliente</h2>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-hover data-table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">CPF</th>
-                            <th scope="col">RG</th>
-                            <th scope="col">ENDEREÇO</th>
-                            <th scope="col">NÚMERO</th>
-                            <th scope="col">ESTADO</th>
-                            <th scope="col">CIDADE</th>
-                            <th scope="col">RENDA</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Remover</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($clients as $key => $client) { ?>
-                        <tr>
-                            <td><?= $client['nome']; ?></td>
-                            <td><?= $client['cpf']; ?></td>
-                            <td><?= $client['rg']; ?></td>
-                            <td><?= $client['endereco']; ?></td>
-                            <td><?= $client['numero']; ?></td>
-                            <td><?= $client['estado']; ?></td>
-                            <td><?= $client['cidade']; ?></td>
-                            <td><?= $client['renda']; ?></td>
-                            <td><a href="edicao_cliente/<?= $client['id']; ?>"><i class="tim-icons icon-pencil"></i></a></td>
-                            <td><a href="removerCliente/clientDelete/<?= $client['id']; ?>"><i class="tim-icons icon-trash-simple"></i></a></td>
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                  </table>
+              <form action="<?php echo base_url('editar_cliente') ?>" method="POST">
+                <div class="row">
+                    <input type="hidden" class="form-control" name="id" value="<?= $id ?>">
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="rg" value="<?= $rg ?>" placeholder="RG" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control cpf" name="cpf" value="<?= $cpf ?>" placeholder="CPF" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="endereco"  value="<?= $endereco ?>" placeholder="Endereço" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="numero" value="<?= $numero ?>" placeholder="Número residêncial" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="estado" value="<?= $estado ?>" placeholder="Estado" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="cidade" value="<?= $cidade ?>" placeholder="Cidade" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="renda" value="<?= $renda ?>" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Renda Mensal" required>
+                    </div>
+                </div> 
+                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+              </form>
+              <div class="mensagem-erro-edit">
+                  <?php
+                      if($msgError = get_msg_error()) {
+                          echo $msgError;
+                      }
+                  ?>
+                </div>
+                <div class="mensagem-sucesso-edit">
+                  <?php
+                      if($msgSucess = get_msg_sucess()) {
+                          echo $msgSucess;
+                      }
+                  ?>
                 </div>
               </div>
             </div>
@@ -210,5 +203,43 @@
       });
     });
   </script>
+   <script>
+    function moeda(a, e, r, t) {
+        let n = ""
+          , h = j = 0
+          , u = tamanho2 = 0
+          , l = ajd2 = ""
+          , o = window.Event ? t.which : t.keyCode;
+        if (13 == o || 8 == o)
+            return !0;
+        if (n = String.fromCharCode(o),
+        -1 == "0123456789".indexOf(n))
+            return !1;
+        for (u = a.value.length,
+        h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++)
+            ;
+        for (l = ""; h < u; h++)
+            -1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
+        if (l += n,
+        0 == (u = l.length) && (a.value = ""),
+        1 == u && (a.value = "0" + r + "0" + l),
+        2 == u && (a.value = "0" + r + l),
+        u > 2) {
+            for (ajd2 = "",
+            j = 0,
+            h = u - 3; h >= 0; h--)
+                3 == j && (ajd2 += e,
+                j = 0),
+                ajd2 += l.charAt(h),
+                j++;
+            for (a.value = "",
+            tamanho2 = ajd2.length,
+            h = tamanho2 - 1; h >= 0; h--)
+                a.value += ajd2.charAt(h);
+            a.value += r + l.substr(u - 2, u)
+        }
+        return !1
+    }
+ </script>
 </body>
 </html>
