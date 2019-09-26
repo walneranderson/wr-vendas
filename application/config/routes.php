@@ -62,6 +62,8 @@ $route['cadastro_produto']      = 'CadastroProduto';
 $route['cadastro_cliente']      = 'CadastroCliente';
 $route['editar_usuario']        = 'EditarUsuario/userUpdate';
 $route['editar_produto']        = 'EditarProduto/productUpdate';
+$route['editar_cliente']        = 'EditarCliente/clientUpdate';
 $route['edicao_usuario/(:num)'] = 'DadosUsuario/showData/$id';
 $route['edicao_produto/(:num)'] = 'DadosProduto/showData/$id';
+$route['edicao_cliente/(:num)'] = 'DadosCliente/showData/$id';
 

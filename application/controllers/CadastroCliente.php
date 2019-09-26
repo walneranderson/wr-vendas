@@ -8,6 +8,7 @@
 			parent::__construct();
 
 			$this->load->model('create');
+			$this->load->model('verify');
 			$this->load->helper('array');
 			$this->load->library('form_validation');
 		}
@@ -28,7 +29,7 @@
 			$date                    = new DateTime();
             $dataForm['usuarios_id'] = $_SESSION["id"];
             $dataForm['created']     = $date->format('Y-m-d H:i:s');
-			$dataForm['renda']       = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['renda']))) ;
+			$dataForm['renda']       = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['renda'])));
 
             $this->form_validation->set_rules('nome', 'CÓDIGO DE BARRAS', 'trim|required');
 			$this->form_validation->set_rules('rg', 'NOME DO PRODUTO', 'trim|required');
@@ -45,17 +46,23 @@
                     
 					$this->load->view('cadastro_cliente');
 				}
-			}else {	
-                $clientData = elements(array('nome','rg', 'cpf', 'endereco', 'numero', 'estado', 'cidade', 'renda', 'usuarios_id', 'created'), $dataForm);
-				$status = $this->create->do_insert('clientes', $clientData);
-					
-				if($status > 0) {
-					set_msg_sucess("Cliente inserido com sucesso!");
+			}else {
+				$isClient = $this->verify->find('clientes', 'cpf', $dataForm['cpf']);
+				if($isClient != NULL) {
+					set_msg_error("Cliente já existe!");
 					redirect('cadastro_cliente', 'refresh');
 				}else {
-					set_msg_error("Erro ao inserir Cliente!");
-					redirect('cadastro_cliente', 'refresh');
-				}
+					$clientData = elements(array('nome','rg', 'cpf', 'endereco', 'numero', 'estado', 'cidade', 'renda', 'usuarios_id', 'created'), $dataForm);
+					$status = $this->create->do_insert('clientes', $clientData);
+						
+					if($status > 0) {
+						set_msg_sucess("Cliente inserido com sucesso!");
+						redirect('cadastro_cliente', 'refresh');
+					}else {
+						set_msg_error("Erro ao inserir Cliente!");
+						redirect('cadastro_cliente', 'refresh');
+					}
+				}	
 			}
 		}
 	}

@@ -31,7 +31,7 @@
                     redirect('edicao_usuario/'.$dataForm['id'], 'refrash');
 				}
 			}else {
-                $usuario = $this->updateUser->do_update('usuarios', 'id', $dataForm);
+                $usuario = $this->updateUser->do_update($dataForm);
                 if ($usuario != NULL) {
                     set_msg_sucess("Usuário atualizado com sucesso!");
                     redirect('edicao_usuario/'.$dataForm['id'], 'refrash');
