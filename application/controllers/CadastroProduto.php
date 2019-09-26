@@ -28,10 +28,10 @@
 			$date                    = new DateTime();
             $dataForm['usuarios_id'] = $_SESSION["id"];
             $dataForm['created']     = $date->format('Y-m-d H:i:s');
-            $dataForm['preco_vista'] = str_replace(',', '.', $dataForm['preco_vista']);
-            $dataForm['preco_prazo'] = str_replace(',', '.', $dataForm['preco_prazo']);
-
-            $this->form_validation->set_rules('codigo_barras', 'CÓDIGO DE BARRAS', 'trim|required');
+			$dataForm['preco_vista'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_vista'])));
+			$dataForm['preco_prazo'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_prazo'])));
+			
+			$this->form_validation->set_rules('codigo_barras', 'CÓDIGO DE BARRAS', 'trim|required');
 			$this->form_validation->set_rules('descricao', 'NOME DO PRODUTO', 'trim|required');
 			$this->form_validation->set_rules('preco_vista', 'PREÇO AVISTA', 'trim|required');
 			$this->form_validation->set_rules('preco_prazo', 'PREÇO A PRAZO', 'trim|required');
