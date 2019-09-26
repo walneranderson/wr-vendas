@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de edição de cliente - WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de atualização de cliente - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Painel Edição de Cliente</title>
+  <title>WR Vendas | Painel de Atualização do Cliente</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -149,7 +149,7 @@
                         <input type="text" class="form-control" name="renda" value="<?= $renda ?>" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Renda Mensal" required>
                     </div>
                 </div> 
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
               </form>
               <div class="mensagem-erro-edit">
                   <?php

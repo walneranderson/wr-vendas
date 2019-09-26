@@ -6,7 +6,7 @@
   <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Cadatro de Usuário</title>
+  <title>WR Vendas | Painel Cadatro de Usuário</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -151,7 +151,7 @@
                       }
                   ?>
                 </div>
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
               </div>
             </div>

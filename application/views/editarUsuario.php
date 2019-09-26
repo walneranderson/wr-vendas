@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de cadastro de usuário - WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de atualização de usuário - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
-  <title>WR Vendas | Cadatro de Usuário</title>
+  <title>WR Vendas | Painel de Atualização do Usuário</title>
   <link href="<?php echo base_url('assets/css/nucleo-icons.css'); ?>" rel="stylesheet" />
   <link href="<?php echo base_url('assets/css/black-dashboard.css?v=1.0.0'); ?>" rel="stylesheet" />
 </head>
@@ -137,7 +137,7 @@
                         <input type="password" class="form-control" name="confSenha" placeholder="Repita sua senha">
                     </div>
                 </div> 
-                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
               </form>
               <div class="mensagem-erro-edit">
                   <?php
