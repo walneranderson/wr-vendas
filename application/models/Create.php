@@ -11,7 +11,6 @@ class Create extends CI_Model {
     public function do_insert($table, $data)
     {
         $this->db->insert($table, $data);	
-		
 		return $this->db->insert_id();		
 	}	
 }

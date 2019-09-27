@@ -23,9 +23,7 @@
 		public function registerClient()
 		{
             date_default_timezone_set('America/Sao_Paulo');       
-            
             $dataForm                = $this->input->post();
-	
 			$date                    = new DateTime();
             $dataForm['usuarios_id'] = $_SESSION["id"];
             $dataForm['created']     = $date->format('Y-m-d H:i:s');
@@ -43,22 +41,21 @@
 			if($this->form_validation->run() == FALSE) {
                 if(validation_errors()){
                     set_msg_error(validation_errors());
-                    
-					$this->load->view('cadastro_cliente');
+					redirect('cadastro_cliente', 'refresh');
 				}
-			}else {
+			} else {
 				$isClient = $this->verify->find('clientes', 'cpf', $dataForm['cpf']);
 				if($isClient != NULL) {
 					set_msg_error("Cliente já existe!");
 					redirect('cadastro_cliente', 'refresh');
-				}else {
+				} else {
 					$clientData = elements(array('nome','rg', 'cpf', 'endereco', 'numero', 'estado', 'cidade', 'renda', 'usuarios_id', 'created'), $dataForm);
 					$status = $this->create->do_insert('clientes', $clientData);
 						
 					if($status > 0) {
 						set_msg_sucess("Cliente inserido com sucesso!");
 						redirect('cadastro_cliente', 'refresh');
-					}else {
+					} else {
 						set_msg_error("Erro ao inserir Cliente!");
 						redirect('cadastro_cliente', 'refresh');
 					}

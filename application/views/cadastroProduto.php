@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, página de cadastro de produto - WR Vendas">
+  <meta name="description" content="Sistema de vendas, página de cadastro de produtos - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
   <title>WR Vendas | Painel Cadastro de Produtos</title>
@@ -89,7 +89,7 @@
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Perfil</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configurações</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Sair</a></li>
+                  <li class="nav-link"><a href="<?php echo base_url('sair'); ?>" class="nav-item dropdown-item">Sair</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -179,6 +179,7 @@
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
   <script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/moeda.js'); ?>"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -195,43 +196,5 @@
       });
     });
   </script>
-  <script>
-    function moeda(a, e, r, t) {
-        let n = ""
-          , h = j = 0
-          , u = tamanho2 = 0
-          , l = ajd2 = ""
-          , o = window.Event ? t.which : t.keyCode;
-        if (13 == o || 8 == o)
-            return !0;
-        if (n = String.fromCharCode(o),
-        -1 == "0123456789".indexOf(n))
-            return !1;
-        for (u = a.value.length,
-        h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++)
-            ;
-        for (l = ""; h < u; h++)
-            -1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
-        if (l += n,
-        0 == (u = l.length) && (a.value = ""),
-        1 == u && (a.value = "0" + r + "0" + l),
-        2 == u && (a.value = "0" + r + l),
-        u > 2) {
-            for (ajd2 = "",
-            j = 0,
-            h = u - 3; h >= 0; h--)
-                3 == j && (ajd2 += e,
-                j = 0),
-                ajd2 += l.charAt(h),
-                j++;
-            for (a.value = "",
-            tamanho2 = ajd2.length,
-            h = tamanho2 - 1; h >= 0; h--)
-                a.value += ajd2.charAt(h);
-            a.value += r + l.substr(u - 2, u)
-        }
-        return !1
-    }
- </script>
 </body>
 </html>

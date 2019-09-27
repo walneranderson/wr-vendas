@@ -20436,9 +20436,13 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .logo-wr-vendas-painel{
-  width: 110px;
+  width: 90px;
 }
-.logo-wr-vendas-painel img{
+.logo-wr-vendas{
+  width: 120px;
+  margin: 30px auto -30px auto;
+}
+.logo-wr-vendas-painel img, .logo-wr-vendas img{
   width: 100%;
 }
 .data-table tr th, .data-table tr td{

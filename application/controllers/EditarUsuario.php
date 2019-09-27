@@ -24,13 +24,12 @@
             if ($dataForm['senha'] != '') {
                 $this->form_validation->set_rules('confSenha', 'REPITA A SENHA', 'trim|required|matches[senha]');
             }
-
             if($this->form_validation->run() == FALSE) {
                 if(validation_errors()){
                     set_msg_error(validation_errors());
                     redirect('edicao_usuario/'.$dataForm['id'], 'refrash');
 				}
-			}else {
+			} else {
                 $usuario = $this->updateUser->do_update($dataForm);
                 if ($usuario != NULL) {
                     set_msg_sucess("Usuário atualizado com sucesso!");

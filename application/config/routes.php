@@ -59,6 +59,7 @@ $route['produtos']              = 'Produtos/findAllProduct';
 $route['clientes']              = 'Clientes/findAllClient';
 $route['preco']                 = 'PrecoProduto/findPrice';
 $route['vendas']                = 'Vendas';
+$route['sair']                  = 'Sair/logout';
 $route['forma_pagamento']       = 'FormaPagamento/findFormPayment';
 $route['cadastro_usuario']      = 'CadastroUsuario';
 $route['cadastro_produto']      = 'CadastroProduto';

@@ -20,7 +20,6 @@ class UpdateClient extends CI_Model {
         $this->db->set('renda', $data['renda']);
         $this->db->where('id', $data['id']);
         $this->db->update('clientes');
-
         return $this->db->affected_rows();
 	}	
 }
