@@ -6,11 +6,14 @@
 		function __construct()
 		{
 			parent::__construct();
+
+			$this->load->model('readVendas');
 		}
         
 		public function index()
 		{
-            loginVerify();
-			$this->load->view('vendas');
+			loginVerify();
+			$dados = array("data" => $this->readVendas->finAll());
+			$this->load->view('vendas', $dados);
 		}
 	}

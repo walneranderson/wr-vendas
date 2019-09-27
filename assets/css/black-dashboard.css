@@ -20487,3 +20487,8 @@ Copyright (c) 2015 Daniel Eden
   font-weight: bold;
   background: #1e1e2f;
 }
+
+#formPagamento input, #formPagamento select{
+  font-weight: bold;
+  color: white;
+}

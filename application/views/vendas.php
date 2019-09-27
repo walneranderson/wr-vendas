@@ -25,24 +25,30 @@
           <div class="col-12">
             <div class="card card-chart">
               <div class="card-body">
-                <form action="<?php echo base_url('#') ?>" method="POST">
+                <form action="<?php echo base_url('efetuarVenda/vend') ?>" method="POST" id="formPagamento">
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <select class="form-control opcoes-vendas" name="produtos_id">
-                                <option selected>Selecione o cliente</option>
+                            <select class="form-control opcoes-vendas" name="clientes_id">
+                                <option value="NULL" selected>Selecione o cliente</option>
+                                <?php foreach ($data['clientes'] as $key => $clientes) { ?>
+                                <option value="<?= $clientes['id']; ?>"><?= $clientes['nome']; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <select class="form-control opcoes-vendas" name="produtos_id">
-                                <option selected>Selecione o produto</option>
+                            <select class="form-control opcoes-vendas" name="produtos_id" id="produtos">
+                                <option value="NULL" selected>Selecione o produto</option>
+                                <?php foreach ($data['produtos'] as $key => $produtos) { ?>
+                                <option value="<?= $produtos['id']; ?>"><?= $produtos['descricao']; ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" name="quantidade" placeholder="Quantidade" required>
+                            <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Quantidade" required>
                         </div>
                         <div class="form-group col-sm-6">
-                            <select class="form-control opcoes-vendas">
-                                <option selected>Forma de pagamento</option>
+                            <select class="form-control opcoes-vendas" name="forma_pagamento" id="formaPagamento">
+                                <option value="NULL" selected>Forma de pagamento</option>
                                 <option value="DINHEIRO">DINHEIRO</option>
                                 <option value="CARTÃO">CARTÃO</option>
                                 <option value="BOLETO">BOLETO</option>
@@ -50,7 +56,11 @@
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <input type="text" class="form-control" name="valor_total" placeholder="Valor total R$" readonly required>
+                            <input type="text" class="form-control" id="valorUnitario" placeholder="Valor unitário" readonly required>
+                        </div>
+                        <div class="form-group col-sm-6"></div>
+                        <div class="form-group col-sm-6">
+                            <input type="text" class="form-control" id="valorTotal" name="valor_total" placeholder="Valor total" readonly required>
                         </div>
                     </div> 
                     <hr class="divisao"/>
@@ -68,7 +78,7 @@
                         }
                     ?>
                     </div>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
                 </form>
               </div>
             </div>
@@ -92,7 +102,7 @@
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
-  <script>
+  <script type="text/javascript">
     $(document).ready(function() {
       $().ready(function() {
         $sidebar    = $('.sidebar');
@@ -108,43 +118,45 @@
       });
     });
   </script>
-  <script>
-    function moeda(a, e, r, t) {
-        let n = ""
-          , h = j = 0
-          , u = tamanho2 = 0
-          , l = ajd2 = ""
-          , o = window.Event ? t.which : t.keyCode;
-        if (13 == o || 8 == o)
-            return !0;
-        if (n = String.fromCharCode(o),
-        -1 == "0123456789".indexOf(n))
-            return !1;
-        for (u = a.value.length,
-        h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++)
-            ;
-        for (l = ""; h < u; h++)
-            -1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
-        if (l += n,
-        0 == (u = l.length) && (a.value = ""),
-        1 == u && (a.value = "0" + r + "0" + l),
-        2 == u && (a.value = "0" + r + l),
-        u > 2) {
-            for (ajd2 = "",
-            j = 0,
-            h = u - 3; h >= 0; h--)
-                3 == j && (ajd2 += e,
-                j = 0),
-                ajd2 += l.charAt(h),
-                j++;
-            for (a.value = "",
-            tamanho2 = ajd2.length,
-            h = tamanho2 - 1; h >= 0; h--)
-                a.value += ajd2.charAt(h);
-            a.value += r + l.substr(u - 2, u)
-        }
-        return !1
-    }
- </script>
+  <script type="text/javascript">
+        var id_produto;
+        $(document).ready(function(){
+            $('#produtos').change(function(){
+                id_produto = $(this).val();
+                $.ajax({
+                    type:'POST',
+                    data:{id: id_produto},
+                    url:'<?php echo base_url('preco'); ?>',
+                    success: function(value){
+                        $('#quantidade').val(1)
+                        $('#valorUnitario').val(value) 
+                        $('#valorTotal').val(value);  
+                    }
+                });
+            });
+
+            $('#formaPagamento').change(function(){
+                var formaPagamento = $(this).val();
+                $.ajax({
+                    type:'POST',
+                    data:{id: id_produto, pagamento: formaPagamento},
+                    url:'<?php echo base_url('forma_pagamento'); ?>',
+                    success: function(value){
+                        if ($('#quantidade').val() != '') {
+                            $('#valorUnitario').val(value);
+                            valorTotal = value * $('#quantidade').val();
+                            $('#valorTotal').val(valorTotal.toFixed(2));  
+                        }
+                    }
+                });
+            });
+        });     
+
+        $('#quantidade').keyup(function(){
+            qtd        = $(this).val();
+            valortotal = $('#valorUnitario').val() * qtd;
+            $('#valorTotal').val(valortotal.toFixed(2));  
+        });
+    </script>
 </body>
 </html>
