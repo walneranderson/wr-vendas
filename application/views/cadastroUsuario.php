@@ -89,7 +89,7 @@
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Perfil</a></li>
                   <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Configurações</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Sair</a></li>
+                  <li class="nav-link"><a href="<?php echo base_url('sair'); ?>" class="nav-item dropdown-item">Sair</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
