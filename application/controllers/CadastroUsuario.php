@@ -41,7 +41,7 @@
 					$this->load->view('cadastroUsuario');
 				}
 			}else {
-				$isValid = $this->verifyUser->find('usuarios', 'matricula', $dataForm['matricula']);
+				$isValid = $this->verify->find('usuarios', 'matricula', $dataForm['matricula']);
 				if($isValid != NULL) {
 					set_msg_error("Usuário já cadastrado!");
 					$this->load->view('cadastroUsuario');
