@@ -13,13 +13,9 @@
 <body>
   <div class="wrapper">
     <div class="main-panel painel-vendas">
-        <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
-            <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <a class="navbar-brand logo-wr-vendas-painel" href="javascript:void(0)"><img src="<?php echo base_url('assets/img/wr-vendas-oficial.png'); ?>" alt="logo marca do sistema wr vendas"></a>
-                </div>
-            </div>
-        </nav>
+      <div class="logo-wr-vendas">
+        <img src="<?php echo base_url('assets/img/wr-vendas-oficial.png'); ?>" alt="logo marca do sistema wr vendas" />
+      </div>
       <div class="content content-vendas">
         <div class="row">
           <div class="col-12">
