@@ -123,7 +123,7 @@
               <div class="card-body">
               <form action="<?php echo base_url('editar_usuario') ?>" method="POST">
                 <div class="row">
-                    <input type="hidden" class="form-control" value="<?= $id ?>" required>
+                    <input type="hidden" class="form-control" name="id" value="<?= $id ?>" required>
                     <div class="form-group col-sm-6">
                         <input type="text" class="form-control" name="nome" value="<?= $nome ?>" placeholder="Nome" required>
                     </div>
@@ -137,16 +137,17 @@
                         <input type="password" class="form-control" name="confSenha" placeholder="Repita sua senha">
                     </div>
                 </div> 
-                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <hr class="divisao"/>
+                <button type="submit" class="btn btn-primary btn-salvar">Atualizar</button>
               </form>
-              <div class="mensagem-erro-edit">
+              <div class="mensagem-erro-edit messagem">
                   <?php
                       if($msgError = get_msg_error()) {
                           echo $msgError;
                       }
                   ?>
                 </div>
-                <div class="mensagem-sucesso-edit">
+                <div class="mensagem-sucesso-edit messagem">
                   <?php
                       if($msgSucess = get_msg_sucess()) {
                           echo $msgSucess;
@@ -175,6 +176,7 @@
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

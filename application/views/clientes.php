@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Sistema de vendas, painel de controle listagem de produtos- WR Vendas">
+  <meta name="description" content="Sistema de vendas, painel de controle listagem de clientes - WR Vendas">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/apple-icon.png'); ?>">
   <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png'); ?>">
   <title>WR Vendas | Painel Clientes</title>
@@ -116,21 +116,21 @@
               <div class="card-header ">
                 <div class="row">
                   <div class="col-sm-12 text-left">
-                  <div class="mensagem-erro">
+                  <div class="mensagem-erro messagem">
                       <?php
                           if($msgError = get_msg_error()) {
                               echo $msgError;
                           }
                       ?>
                     </div>
-                    <div class="mensagem-sucesso">
+                    <div class="mensagem-sucesso messagem">
                       <?php
                           if($msgSucess = get_msg_sucess()) {
                               echo $msgSucess;
                           }
                       ?>
                     </div>
-                    <h2 class="card-title">Produtos</h2>
+                    <h2 class="card-title">Clientes</h2>
                     <a href="<?php echo base_url('cadastro_cliente'); ?>" class="btn btn-primary btn-adicionar">
                       + Adicionar
                     </a>
@@ -194,6 +194,7 @@
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

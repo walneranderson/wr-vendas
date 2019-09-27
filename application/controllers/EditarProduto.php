@@ -16,8 +16,13 @@
             loginVerify();
             
             $dataForm = $this->input->post();
-            $dataForm['preco_vista'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_vista'])));
-			$dataForm['preco_prazo'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_prazo'])));
+            
+            if(strstr($dataForm['preco_vista'], ",") == TRUE){
+                $dataForm['preco_vista'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_vista']))); 
+            }
+            if(strstr($dataForm['preco_prazo'], ",") == TRUE){
+                $dataForm['preco_prazo'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['preco_prazo'])));
+            }
 
             $this->form_validation->set_rules('codigo_barras', 'CÓDIGO DE BARRAS', 'trim|required');
 			$this->form_validation->set_rules('descricao', 'NOME DO PRODUTO', 'trim|required');

@@ -16,8 +16,10 @@
             loginVerify();
             
             $dataForm = $this->input->post();
-            $dataForm['renda'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['renda'])));
-
+            if(strstr($dataForm['renda'], ",") == TRUE){
+                $dataForm['renda'] = str_replace(',', '.', str_replace('.', '' ,str_replace(',00', '', $dataForm['renda'])));
+            }
+            
             $this->form_validation->set_rules('nome', 'CÓDIGO DE BARRAS', 'trim|required');
 			$this->form_validation->set_rules('rg', 'NOME DO PRODUTO', 'trim|required');
 			$this->form_validation->set_rules('cpf', 'PREÇO AVISTA', 'trim|required');

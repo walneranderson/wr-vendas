@@ -64,14 +64,14 @@
                         </div>
                     </div> 
                     <hr class="divisao"/>
-                    <div class="mensagem-erro">
+                    <div class="mensagem-erro messagem">
                     <?php
                         if($msgError = get_msg_error()) {
                             echo $msgError;
                         }
                     ?>
                     </div>
-                    <div class="mensagem-sucesso">
+                    <div class="mensagem-sucesso messagem">
                     <?php
                         if($msgSucess = get_msg_sucess()) {
                             echo $msgSucess;
@@ -102,6 +102,7 @@
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $().ready(function() {

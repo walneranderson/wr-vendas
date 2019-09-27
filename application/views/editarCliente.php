@@ -149,16 +149,17 @@
                         <input type="text" class="form-control" name="renda" value="<?= $renda ?>" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Renda Mensal" required>
                     </div>
                 </div> 
-                <button type="submit" class="btn btn-primary">Atualizar</button>
+                <hr class="divisao"/>
+                <button type="submit" class="btn btn-primary btn-salvar">Atualizar</button>
               </form>
-              <div class="mensagem-erro-edit">
+              <div class="mensagem-erro-edit messagem">
                   <?php
                       if($msgError = get_msg_error()) {
                           echo $msgError;
                       }
                   ?>
                 </div>
-                <div class="mensagem-sucesso-edit">
+                <div class="mensagem-sucesso-edit messagem">
                   <?php
                       if($msgSucess = get_msg_sucess()) {
                           echo $msgSucess;
@@ -187,6 +188,7 @@
   <script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/black-dashboard.min.js?v=1.0.0'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

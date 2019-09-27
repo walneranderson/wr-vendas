@@ -46,7 +46,7 @@
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
-				<div class="mensagem-erro">
+				<div class="mensagem-erro messagem">
 				  <?php
                       if($msgError = get_msg_error()) {
                           echo $msgError;
@@ -59,5 +59,6 @@
 </div>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="<?php echo base_url('assets/js/set-time-out.js'); ?>"></script>
 </body>
 </html>
