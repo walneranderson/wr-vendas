@@ -22,9 +22,9 @@
 			if($this->form_validation->run() == FALSE) {
                 if(validation_errors()){
 					set_msg_error(validation_errors());
-					$this->load->view('login');
+					redirect('login', 'refresh');
 				}
-			}else if($UserDataDb) {
+			} else if($UserDataDb) {
 				if (password_verify($loginData['senha'], $UserDataDb->senha)) {
 					
 					$this->session->set_userdata('logged', TRUE);
@@ -34,11 +34,11 @@
 
 					redirect('painel', 'refresh');
 
-				}else {
+				} else {
 					set_msg_error("Senha incorreta!");
 					redirect('login', 'refresh');
 				}
-			}else {
+			} else {
 				set_msg_error("Usuário não existe!");
 				redirect('login', 'refresh');
 			}

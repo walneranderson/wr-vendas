@@ -36,23 +36,23 @@
 			$this->form_validation->set_rules('confSenha', 'REPITA A SENHA', 'trim|required|matches[senha]');
 
 			if($this->form_validation->run() == FALSE) {
-                if(validation_errors()){
+                if(validation_errors()) {
 					set_msg_error(validation_errors());
-					$this->load->view('cadastroUsuario');
+					redirect('cadastroUsuario', 'refresh');
 				}
-			}else {
+			} else {
 				$isValid = $this->verify->find('usuarios', 'matricula', $dataForm['matricula']);
 				if($isValid != NULL) {
 					set_msg_error("Usuário já cadastrado!");
-					$this->load->view('cadastroUsuario');
-				}else {					
+					redirect('cadastroUsuario', 'refresh');
+				} else {					
 					$userData = elements(array('nome','matricula', 'senha', 'created'), $dataForm); 
 					$status = $this->create->do_insert('usuarios', $userData);
 						
 					if($status > 0) {
 						set_msg_sucess("Usuário inserido com sucesso!");
 						redirect('cadastroUsuario', 'refresh');
-					}else {
+					} else {
 						set_msg_error("Erro ao inserir usuário!");
 						redirect('cadastroUsuario', 'refresh');
 					}
