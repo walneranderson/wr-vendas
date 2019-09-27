@@ -20,7 +20,7 @@
             $dataForm['data']        = $date->format('Y-m-d H:i:s');
             $dataForm['usuarios_id'] = $_SESSION["id"];
             $dataForm['created']     = $date->format('Y-m-d H:i:s');
-            $dataForm['atualizacao'] = $date->format('Y-m-d H:i:s');
+            $dataForm['updated']     = $date->format('Y-m-d H:i:s');
             
             if ($dataForm['forma_pagamento'] != 'NULL' && $dataForm['clientes_id'] != 'NULL' && $dataForm['produtos_id'] != 'NULL') {
                 $this->form_validation->set_rules('clientes_id', 'CLIENTE', 'trim|required');
@@ -36,7 +36,7 @@
                     }
                 } else {	
                     $vendData = elements(array('clientes_id','produtos_id', 'quantidade', 
-                    'forma_pagamento', 'valor_total', 'data', 'usuarios_id', 'created', 'atualizacao'), $dataForm);
+                    'forma_pagamento', 'valor_total', 'data', 'usuarios_id', 'created', 'updated'), $dataForm);
                     
                     $status = $this->create->do_insert('vendas', $vendData);
                 
